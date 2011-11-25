@@ -73,8 +73,36 @@ class GoogleMovieShowtimes {
 
 				$i++;
 			}
+
+			return $resp;
 		}
 
+		$i = 0;
+		$resp = array();
+
+		foreach ($this->html->find('#movie_results .theater') as $div) {
+			$resp['theater'][$i]['name'] = $div->find('h2 a', 0)->innertext;
+			$resp['theater'][$i]['info'] = $div->find('.info', 0)->innertext;
+
+			$movies = $div->find('.movie');
+			$j = 0;
+			foreach($movies as $movie) {
+				$resp['theater'][$i]['movies'][$j]['name'] = $movie->find('a', 0)->innertext;
+				$resp['theater'][$i]['movies'][$j]['info'] = $movie->find('.info', 0)->innertext;
+
+				$k = 0;
+				foreach ($movie->find('.times span') as $time) { 
+          $resp['theater'][$i]['movies'][$j]['time'][$k] = $time->innertext;
+          $k++;
+        }
+
+				$j++;
+			}
+
+			$i++;
+		}
+
+		return $resp;
 	}
 }
 
