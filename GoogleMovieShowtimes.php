@@ -1,4 +1,26 @@
 <?php
+/**
+ * Google Movie Showtimes Parser
+ * 
+ * This script provides a PHP class that can be used to parse Google Movie
+ * Showtimes (www.google.com/movies) pages into sensible associative arrays.
+ *
+ * This script makes use of PHP Simple HTML DOM Parser:
+ * http://simplehtmldom.sourceforge.net/
+ * At the time when this script was being written, version 1.5 of PHP Simple
+ * HTML DOM Parser was used. Therefore, the same version has been included
+ * in the project repository just in case this script does not work well
+ * with your latest copy of PHP Simple HTML DOM Parser.
+ *
+ * You should get your latest copy of PHP Simple HTML DOM Parser from
+ * (http://sourceforge.net/projects/simplehtmldom/files/) and unzip into  
+ * PROJECT_ROOT/simple_html_dom/. Having said that, this script should be in
+ * PROJECT_ROOT/
+ *
+ * 
+ * @author Vaidik Kapoor <kapoor.vaidik@gmail.com>
+ * @version 0.1
+ */
 
 require_once 'simple_html_dom/simple_html_dom.php';
 
